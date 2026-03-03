@@ -44,21 +44,6 @@ h3 {
   font-family: var(--font-fraunces), system-ui, Georgia, serif;
 }
 
-@keyframes nfLogoReveal {
-  0% {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.nf-logo-reveal {
-  animation: nfLogoReveal 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
 /* ============== PREMIUM LINE REVEAL INTRO (CLEAN) ============== */
 
 .nf-intro {
@@ -86,7 +71,7 @@ h3 {
   background: var(--nf-mist);
   opacity: 0.9;
   transform-origin: center;
-  animation: nfLineGrow 800ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: nfLineGrow 2000ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   animation-delay: 180ms;
 }
 
@@ -100,8 +85,8 @@ h3 {
 .nf-monogram {
   opacity: 0;
   transform: translateY(28px) scale(0.985); /* LENTRŐL indul */
-  animation: nfLogoUp 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 650ms;
+  animation: nfLogoUp 1200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 820ms;
 }
 
 @keyframes nfLogoUp {
@@ -115,7 +100,7 @@ h3 {
 .nf-title {
   opacity: 0;
   transform: translateY(-18px);
-  animation: nfTitleDown 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: nfTitleDown 1200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   animation-delay: 820ms;
 }
 
