@@ -44,59 +44,97 @@ h3 {
   font-family: var(--font-fraunces), system-ui, Georgia, serif;
 }
 
-/* ============== PREMIUM LINE REVEAL INTRO ============== */
+/* ============== ORNAMENT INTRO (ELEGANT) ============== */
+
 .nf-intro {
   position: relative;
   display: grid;
   place-items: center;
-  gap: 0;
+  gap: clamp(28px, 5vh, 56px);
 }
 
-.nf-logo-wrap,
-.nf-title-wrap {
-  overflow: hidden;
-  margin-bottom: 22px;
-  margin-top: 22px;
+/* egy “sor”, két virág + köztük a vonal */
+.nf-orn-row {
+  width: min(980px, 92vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(18px, 4vw, 34px);
 }
 
-.nf-monogram {
-  transform: translateY(110%) scale(0.985); /* biztosan a wrap alatt indul */
-  animation: nfLogoUp 1200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 820ms;
-  will-change: transform;
-}
-
-@keyframes nfLogoUp {
-  to {
-    transform: translateY(0) scale(1);
-  }
-}
-
-.nf-title {
-  transform: translateY(-110%); /* biztosan a wrap felett indul */
-  animation: nfTitleDown 1200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 820ms;
-  will-change: transform;
-}
-
-@keyframes nfTitleDown {
-  to {
-    transform: translateY(0);
-  }
-}
-
-.nf-line {
+/* a vonal: középről nő két irányba */
+.nf-orn-line {
+  flex: 1;
   height: 1px;
-  width: 0px;
   background: var(--nf-mist);
-  opacity: 0.9; /* maradhat, ez nem "fade-in", statikus */
+  opacity: 0.9;
+
+  transform: scaleX(0);
   transform-origin: center;
-  animation: nfLineGrow 2000ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 180ms;
+
+  animation: nfLineReveal 1600ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--nf-line-delay, 180ms);
+
+  will-change: transform;
 }
 
-@keyframes nfLineGrow {
+/* virág */
+.nf-flower {
+  width: clamp(42px, 4.5vw, 62px);
+  height: auto;
+
+  opacity: 0;
+  animation: nfFadeIn 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: var(--nf-flower-delay, 800ms);
+}
+
+/* NF logo fade-in (finom, elegáns) */
+.nf-monogram {
+  opacity: 0;
+  transform: scale(0.992);
+  animation: nfLogoFade 2000ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 1500ms;
+
+  will-change: opacity, transform;
+}
+
+/* top/bottom finom időzítés */
+.nf-orn-top {
+  --nf-line-delay: 500ms;
+  --nf-flower-delay: 1000ms;
+}
+
+.nf-orn-bottom {
+  --nf-line-delay: 500ms;
+  --nf-flower-delay: 1000ms;
+}
+
+@keyframes nfLineReveal {
   to {
-    width: min(520px, 72vw);
+    transform: scaleX(1);
+  }
+}
+
+@keyframes nfFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes nfLogoFade {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* akadálymentes: reduced motion esetén nincs anim */
+@media (prefers-reduced-motion: reduce) {
+  .nf-orn-line,
+  .nf-flower,
+  .nf-monogram {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
   }
 }

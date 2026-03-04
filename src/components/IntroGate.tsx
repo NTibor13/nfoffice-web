@@ -18,24 +18,47 @@ export default function IntroGate({ children }: { children: React.ReactNode }) {
           ].join(" ")}
         >
           <div className="nf-intro text-center select-none">
-            {/* Logo */}
-            <div className="nf-logo-wrap">
+            {/* Top ornament row */}
+            <div className="nf-orn-row nf-orn-top">
               <img
-                src="/logo.svg"
-                alt="NF"
-                className="nf-monogram mx-auto h-28 w-auto md:h-36"
+                src="/margareta.svg"
+                alt=""
+                aria-hidden="true"
+                className="nf-flower"
+              />
+              <div className="nf-orn-line" />
+              <img
+                src="/margareta.svg"
+                alt=""
+                aria-hidden="true"
+                className="nf-flower"
               />
             </div>
 
-            {/* Line */}
-            <div className="nf-line" />
-            {/* Title */}
-            <div className="nf-title-wrap">
-              <div className="nf-title text-3xl md:text-4xl font-semibold tracking-[0.28em] text-[var(--nf-mauve)]">
-                NFOFFICE
-              </div>
+            {/* Center monogram */}
+            <img
+              src="/logo.svg"
+              alt="NF"
+              className="nf-monogram mx-auto h-28 w-auto md:h-36"
+            />
+
+            {/* Bottom ornament row */}
+            <div className="nf-orn-row nf-orn-bottom">
+              <img
+                src="/margareta.svg"
+                alt=""
+                aria-hidden="true"
+                className="nf-flower"
+              />
+              <div className="nf-orn-line" />
+              <img
+                src="/margareta.svg"
+                alt=""
+                aria-hidden="true"
+                className="nf-flower"
+              />
             </div>
-          </div>
+          </div>{" "}
         </div>
       )}
 
