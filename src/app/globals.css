@@ -44,32 +44,52 @@ h3 {
   font-family: var(--font-fraunces), system-ui, Georgia, serif;
 }
 
-/* ============== PREMIUM LINE REVEAL INTRO (CLEAN) ============== */
-
+/* ============== PREMIUM LINE REVEAL INTRO ============== */
 .nf-intro {
   position: relative;
   display: grid;
   place-items: center;
-  gap: 0; /* a távolságot a wrap-ek marginja adja */
+  gap: 0;
 }
 
-/* Szimmetrikus távolság */
-.nf-logo-wrap {
-  overflow: hidden;
-  margin-bottom: 22px;
-}
-
+.nf-logo-wrap,
 .nf-title-wrap {
   overflow: hidden;
+  margin-bottom: 22px;
   margin-top: 22px;
 }
 
-/* The center line that expands left & right */
+.nf-monogram {
+  transform: translateY(110%) scale(0.985); /* biztosan a wrap alatt indul */
+  animation: nfLogoUp 1200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 820ms;
+  will-change: transform;
+}
+
+@keyframes nfLogoUp {
+  to {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.nf-title {
+  transform: translateY(-110%); /* biztosan a wrap felett indul */
+  animation: nfTitleDown 1200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 820ms;
+  will-change: transform;
+}
+
+@keyframes nfTitleDown {
+  to {
+    transform: translateY(0);
+  }
+}
+
 .nf-line {
   height: 1px;
   width: 0px;
   background: var(--nf-mist);
-  opacity: 0.9;
+  opacity: 0.9; /* maradhat, ez nem "fade-in", statikus */
   transform-origin: center;
   animation: nfLineGrow 2000ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   animation-delay: 180ms;
@@ -78,35 +98,5 @@ h3 {
 @keyframes nfLineGrow {
   to {
     width: min(520px, 72vw);
-  }
-}
-
-/* Logo: lentről felfelé "kicsúszik" a vonal alól */
-.nf-monogram {
-  opacity: 0;
-  transform: translateY(28px) scale(0.985); /* LENTRŐL indul */
-  animation: nfLogoUp 1200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 820ms;
-}
-
-@keyframes nfLogoUp {
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Title: fentről lefelé "kicsúszik" a vonal alól (alatta jelenik meg) */
-.nf-title {
-  opacity: 0;
-  transform: translateY(-18px);
-  animation: nfTitleDown 1200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 820ms;
-}
-
-@keyframes nfTitleDown {
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
