@@ -7,12 +7,11 @@ export default function Home() {
         <div className="min-h-screen bg-[var(--nf-paper)] text-[var(--nf-ink)]">
           {/* Top bar */}
           <header className="sticky top-0 z-50 border-b border-[var(--nf-mist)] bg-[var(--nf-paper)]/80 backdrop-blur">
-            <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+            <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4">
               <div className="flex items-center gap-2">
-                <div className="h-8 w-8 rounded-lg border border-zinc-200" />
-                <span className="text-sm font-semibold tracking-wide">
-                  NFOFFICE
-                </span>
+                <div className="h-12 w-12 rounded-lg border border-zinc-200">
+                  <img src="/badge.svg" alt="NFO" />
+                </div>
               </div>
 
               <nav className="hidden items-center gap-6 text-sm md:flex">
