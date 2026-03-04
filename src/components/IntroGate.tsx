@@ -33,9 +33,8 @@ export default function IntroGate({ children }: { children: React.ReactNode }) {
             <img
               src="/logo.svg"
               alt="NF"
-              className="nf-monogram mx-auto h-28 w-auto md:h-36"
+              className="nf-monogram mx-auto h-[clamp(90px,14vmin,200px)] w-auto"
             />
-
             {/* BOTTOM: balra húzó vonal + jobb virág */}
             <div className="nf-orn-row nf-orn-bottom">
               <div className="nf-orn-line nf-orn-line-bottom" />
