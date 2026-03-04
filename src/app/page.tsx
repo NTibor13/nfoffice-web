@@ -7,12 +7,10 @@ export default function Home() {
       <div className="min-h-screen bg-[var(--nf-paper)] text-[var(--nf-ink)]">
         <div className="min-h-screen bg-[var(--nf-paper)] text-[var(--nf-ink)]">
           {/* Top bar */}
-          <header className="sticky top-0 z-50 border-b border-[var(--nf-mist)] bg-[var(--nf-paper)]/80 backdrop-blur">
-            <NavBar />
-          </header>
+          <NavBar />
 
           {/* Hero */}
-          <main>
+          <main className="pt-24">
             <section className="mx-auto max-w-6xl px-4 py-16 md:py-24">
               <div className="grid gap-10 md:grid-cols-2 md:items-center">
                 <div className="space-y-6">
