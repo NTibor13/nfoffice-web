@@ -20,45 +20,15 @@ export default function IntroGate({ children }: { children: React.ReactNode }) {
           <div className="nf-intro text-center select-none">
             {/* Top ornament row */}
             <div className="nf-orn-row nf-orn-top">
-              <img
-                src="/margareta.svg"
-                alt=""
-                aria-hidden="true"
-                className="nf-flower"
-              />
-              <div className="nf-orn-line" />
-              <img
-                src="/margareta.svg"
-                alt=""
-                aria-hidden="true"
-                className="nf-flower"
-              />
+              <img src="/margareta.svg" className="nf-flower nf-flower-left" />
+              <div className="nf-line-grow" />
             </div>
-
-            {/* Center monogram */}
-            <img
-              src="/logo.svg"
-              alt="NF"
-              className="nf-monogram mx-auto h-28 w-auto md:h-36"
-            />
-
-            {/* Bottom ornament row */}
+            <img src="/logo.svg" className="nf-monogram" />
             <div className="nf-orn-row nf-orn-bottom">
-              <img
-                src="/margareta.svg"
-                alt=""
-                aria-hidden="true"
-                className="nf-flower"
-              />
-              <div className="nf-orn-line" />
-              <img
-                src="/margareta.svg"
-                alt=""
-                aria-hidden="true"
-                className="nf-flower"
-              />
-            </div>
-          </div>{" "}
+              <div className="nf-line-grow" />
+              <img src="/margareta.svg" className="nf-flower nf-flower-right" />
+            </div>{" "}
+          </div>
         </div>
       )}
 
