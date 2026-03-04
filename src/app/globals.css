@@ -55,7 +55,7 @@ h3 {
 
 /* sor: top/bottom */
 .nf-orn-row {
-  width: min(980px, 92vw);
+  width: min(70vw, 900px);
   display: flex;
   align-items: center;
   justify-content: center;
