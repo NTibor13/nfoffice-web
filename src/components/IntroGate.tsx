@@ -18,17 +18,35 @@ export default function IntroGate({ children }: { children: React.ReactNode }) {
           ].join(" ")}
         >
           <div className="nf-intro text-center select-none">
-            {/* Top ornament row */}
+            {/* TOP: bal virág + jobbra húzó vonal */}
             <div className="nf-orn-row nf-orn-top">
-              <img src="/margareta.svg" className="nf-flower nf-flower-left" />
-              <div className="nf-line-grow" />
+              <img
+                src="/margareta.svg"
+                alt=""
+                aria-hidden="true"
+                className="nf-flower nf-flower-tl"
+              />
+              <div className="nf-orn-line nf-orn-line-top" />
             </div>
-            <img src="/logo.svg" className="nf-monogram" />
+
+            {/* CENTER LOGO */}
+            <img
+              src="/logo.svg"
+              alt="NF"
+              className="nf-monogram mx-auto h-28 w-auto md:h-36"
+            />
+
+            {/* BOTTOM: balra húzó vonal + jobb virág */}
             <div className="nf-orn-row nf-orn-bottom">
-              <div className="nf-line-grow" />
-              <img src="/margareta.svg" className="nf-flower nf-flower-right" />
-            </div>{" "}
-          </div>
+              <div className="nf-orn-line nf-orn-line-bottom" />
+              <img
+                src="/margareta.svg"
+                alt=""
+                aria-hidden="true"
+                className="nf-flower nf-flower-br"
+              />
+            </div>
+          </div>{" "}
         </div>
       )}
 

@@ -44,87 +44,112 @@ h3 {
   font-family: var(--font-fraunces), system-ui, Georgia, serif;
 }
 
-/* ============== ORNAMENT INTRO (ELEGANT) ============== */
+/* ============== ORNAMENT INTRO v2 (FLOWER -> LINE DRAW) ============== */
 
 .nf-intro {
   position: relative;
   display: grid;
   place-items: center;
-  gap: clamp(28px, 5vh, 56px);
+  gap: clamp(34px, 6vh, 64px);
 }
 
-/* ornament sor */
+/* sor: top/bottom */
 .nf-orn-row {
-  width: min(900px, 90vw);
+  width: min(980px, 92vw);
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  gap: clamp(16px, 3vw, 28px);
 }
 
-/* vonal */
-.nf-line-grow {
-  flex: 1;
+/* virág alap */
+.nf-flower {
+  width: clamp(42px, 4.5vw, 62px);
+  height: auto;
+
+  opacity: 0;
+  transform: translateY(0);
+  animation: nfFlowerFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 200ms;
+}
+
+/* FENT bal virág (same fade) */
+.nf-flower-tl {
+  animation-delay: 180ms;
+}
+
+/* LENT jobb virág (same fade) */
+.nf-flower-br {
+  animation-delay: 180ms;
+}
+
+/* vonal alap */
+.nf-orn-line {
   height: 1px;
   background: var(--nf-mist);
+  opacity: 0.9;
 
+  /* mindig kitölti a maradék helyet */
+  flex: 1;
+
+  /* vonal "kihúzás" */
   transform: scaleX(0);
-  transform-origin: left;
-
-  animation: lineGrow 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  animation-delay: 0.6s;
+  will-change: transform;
 }
 
-/* virág */
-.nf-flower {
-  width: 46px;
-  opacity: 0;
+/* TOP line: balról jobbra */
+.nf-orn-line-top {
+  transform-origin: left center;
+  animation: nfLineDraw 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 900ms; /* virág fade után induljon */
 }
 
-.nf-flower-left {
-  animation:
-    flowerFade 0.6s forwards,
-    flowerTravel 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-
-  animation-delay: 0.2s, 0.6s;
+/* BOTTOM line: jobbról balra */
+.nf-orn-line-bottom {
+  transform-origin: right center;
+  animation: nfLineDraw 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 900ms;
 }
 
-.nf-flower-right {
-  animation: flowerFade 0.6s forwards;
-  animation-delay: 2.1s;
-}
-
-/* NF logó */
+/* NF logó: félidőben fade-in + blurből kitisztul */
 .nf-monogram {
-  max-width: 15vh;
   opacity: 0;
-  animation: nfFade 1.2s ease forwards;
-  animation-delay: 1.2s;
+  filter: blur(10px);
+  transform: scale(0.992);
+
+  animation: nfLogoReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 1.4s; /* kb félúton a vonalak alatt */
+  will-change: opacity, filter, transform;
 }
 
-@keyframes lineGrow {
+@keyframes nfFlowerFade {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes nfLineDraw {
   to {
     transform: scaleX(1);
   }
 }
 
-@keyframes flowerTravel {
-  from {
-    transform: translateX(0);
-  }
+@keyframes nfLogoReveal {
   to {
-    transform: translateX(calc(100% - 46px));
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
   }
 }
 
-@keyframes flowerFade {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes nfFade {
-  to {
-    opacity: 1;
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .nf-flower,
+  .nf-orn-line,
+  .nf-monogram {
+    animation: none !important;
+    transform: none !important;
+    filter: none !important;
+    opacity: 1 !important;
   }
 }
