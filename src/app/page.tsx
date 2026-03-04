@@ -1,4 +1,5 @@
 import IntroGate from "@/components/IntroGate";
+import NavBar from "@/components/NavBar";
 
 export default function Home() {
   return (
@@ -7,35 +8,7 @@ export default function Home() {
         <div className="min-h-screen bg-[var(--nf-paper)] text-[var(--nf-ink)]">
           {/* Top bar */}
           <header className="sticky top-0 z-50 border-b border-[var(--nf-mist)] bg-[var(--nf-paper)]/80 backdrop-blur">
-            <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4">
-              <div className="flex items-center gap-2">
-                <div className="h-12 w-12 rounded-lg border border-zinc-200">
-                  <img src="/badge.svg" alt="NFO" />
-                </div>
-              </div>
-
-              <nav className="hidden items-center gap-6 text-sm md:flex">
-                <a className="hover:text-zinc-600" href="#about">
-                  Lényeg
-                </a>
-                <a className="hover:text-zinc-600" href="#story">
-                  Történet
-                </a>
-                <a className="hover:text-zinc-600" href="#values">
-                  Alapelvek
-                </a>
-                <a className="hover:text-zinc-600" href="#contact">
-                  Kapcsolat
-                </a>
-              </nav>
-
-              <a
-                href="#contact"
-                className="rounded-xl bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-800"
-              >
-                Kapcsolat
-              </a>
-            </div>
+            <NavBar />
           </header>
 
           {/* Hero */}
@@ -88,8 +61,8 @@ export default function Home() {
               </div>
             </section>
 
-            {/* About */}
-            <section id="about" className="border-t border-zinc-200 bg-white">
+            {/* rolunk */}
+            <section id="rolunk" className="border-t border-zinc-200 bg-white">
               <div className="mx-auto max-w-6xl px-4 py-14 md:py-18">
                 <h2 className="text-2xl font-semibold tracking-[-0.01em] md:text-3xl">
                   Mi a family office lényege?
